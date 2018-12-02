@@ -2,47 +2,70 @@ package com.company;
 import java.util.*;
 
 public class Inventory {
-    private ArrayList<Item> items;
-    private Item item0;
-    private static Item temp;
 
-    Inventory(Item item1,Item item2,Item item3, Item item4,Item item5,Item item6,Item item0) {
-        ArrayList<Item> items = new ArrayList<Item>();
-        items.add(item1);
-        items.add(item2);
-        items.add(item3);
-        items.add(item4);
-        items.add(item5);
-        items.add(item6);
-        item0=item0;
-}
-    public void showInventory(){
-        ListIterator<Item> itemIter = items.listIterator();
-        while(itemIter.hasNext()){
-            if (itemIter.next().getTakeItem()){
-                System.out.println(itemIter.next());
+    private ArrayList<Item> items;
+    private Item buffIntem;
+    private  Item temp;
+
+    Inventory(ArrayList items) {
+        this.items = items;
+    }
+
+    public ArrayList getItems(){
+        return items;
+
+    }
+
+//    выводит инвентарь на экран
+    public String showInventory(){
+        String string="У вас есть:";
+        for (Item itemIter : items) {
+            if (itemIter.getTakeItem()){
+                string+="\t"+itemIter.getName()+"\n";
                 }
         }
+        return string;
     }
-    private boolean searchItem(String name){
+
+    // возвращает предмет по имени
+    public Item setItem(String name){
+        if (searchItem(name)) {
+            for (int i = 0; i < items.size(); i++) {
+                temp = (Item) items.get(i);
+                if (temp.getName().equals(name)) {
+                    return temp;
+                }
+            }
+        }else{
+            System.out.println("Здесь такова предмета нет");
+        }
+            return buffIntem;
+    }
+
+//      меняет состояние предмета
+    public void takeItem(String name){
+        Item item=setItem(name);
+        item.changeState();
+    }
+
+//    поиск предмета в инвентаре
+    public boolean searchItem(String name){
         for (int i = 0; i < items.size(); i++) {
             temp = (Item) items.get(i);
-            if (temp.getName() == item0.getName()) {
+            if (temp.getName().equals(name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public Item setItem(String name){
-        if (searchItem(name)) {
-            for (int i = 0; i < items.size(); i++) {
-                temp = (Item) items.get(i);
-                if (temp.getName() == name) {
-                    return temp;
-                }
+    public void craft(String name1, String name2){
+        for (Item itemIter : items) {
+            if (itemIter.getName()==name1){
+                itemIter.getTakeItem();
+            }else if ( itemIter.getName()==name2){
+                itemIter.getTakeItem();
             }
         }
-    return item0;
     }
 }

@@ -1,34 +1,43 @@
 package com.company;
 
 public class InteractiveObject{
-    private  static String state;
-    private  static String changeState;
+    private   String state;
+    private   String changeState;
     public String name;
-    private static boolean toUse;
-    private  static Item contacteWith;
+    private  boolean isUse;
+    private   String contacteWith;
 
-    InteractiveObject(String state, String changeState, String name, Item contacteWith){
+    InteractiveObject(String state, String changeState, String name, String contacteWith){
         this.state=state;
         this.contacteWith=contacteWith;
         this.name=name;
         this.changeState=changeState;
-        this.toUse=false;
+        this.isUse=false;
     }
 
-    public static void use(){
-        System.out.println(state);
+    public void getDiscription(){
+        System.out.print(state);
     }
-    public boolean toUse(){
-        return toUse;
+
+    public  boolean getIsUse() {
+        return isUse;
     }
+
+    public void toUse(){
+        if (isUse){
+            isUse=false ;}
+        else
+            isUse=true;
+    }
+
     public String getName(){
         return name;
     }
 
-    public static void changeState(Item item){
-        if (!toUse){
+    public void changeState(String item){
+        if (!isUse){
             if (item.equals(contacteWith)){
-                toUse=true;
+                isUse=true;
                 state=changeState;
                 System.out.println(state);
             }else System.out.println("действие не возымело эфекта");

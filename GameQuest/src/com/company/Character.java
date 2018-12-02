@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class Character {
     private Inventory inventory;
-    private static Item hand;
     private Location location;
 
     Character( Location location,Inventory inventory){
@@ -14,23 +13,29 @@ public class Character {
         this.inventory= inventory;
     }
 
-    public void openDoor(Location location){
-        location=location;
+    public void openDoor(Location newLocation){
+        System.out.println("Вы вошли в "+newLocation.getName());
+        location=newLocation;
     }
 
     public void lookAround(){
         System.out.println(location.getStateLocations());
     }
 
-    public void useInventory(){
-        inventory.showInventory();
+    public void takeItem(String name){
+
+        inventory.takeItem(name);
+        location.takeItem(location.setItem(name));
 
     }
-    public String takeItem(){
-        String string="";
+
+    public String showIndentory(){
+        String string;
+        string=inventory.showInventory();
         return string;
-    }
-    public void showIndentory(){
-        inventory.showInventory();
         }
+
+    public Location getlocation(){
+        return location;
+    }
 }

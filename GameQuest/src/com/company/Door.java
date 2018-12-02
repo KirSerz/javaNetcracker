@@ -4,12 +4,14 @@ public class Door {
 
     private  Location location ;
     private  String position;
+
     Door(Location location,String position){
         this.location=location;
         this.position=position;
     }
+
     public Location openDoor(){
-        String string="";
+        String string="Вы перешли в "+ location.getName();
         return location;
     }
 
