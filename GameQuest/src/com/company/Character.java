@@ -1,8 +1,6 @@
 package com.company;
 
 import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.Map;
 
 public class Character {
     private Inventory inventory;

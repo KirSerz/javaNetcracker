@@ -31,10 +31,9 @@ public class Main {
         Inventory inventory=new Inventory(items);
 
         InteractiveObject interactiveObject1 = new InteractiveObject("обычная спиртовая горелка","горелка накрепко скрепляет ведро и цепь","горелка",item4.getName());
-        InteractiveObject interactiveObject2 = new InteractiveObject("спящий волшебник. Наверно всему виной тот виски","Волшебник просыпается и одаривая вас холодным, как вода в колодце, взгядом протягивает кристал что все время лежал под подушкой","волшебник",item6.getName());
+        InteractiveObject interactiveObject2 = new InteractiveObject("спящий волшебник. Наверно всему виной тот виски","Волшебник просыпается и одаривая вас холодным, как вода в колодце, взгядом протягивает кристал который все это время лежал под подушкой","волшебник",item6.getName());
         InteractiveObject interactiveObject3 = new InteractiveObject("зеленая лягушка. не примечательна","лягушка с большой радостью пьет виски, возможно когда-то она была человеком","лягушка",item1.getName());
         InteractiveObject interactiveObject4 = new InteractiveObject("глубокий колодец","Вы коекак вытаскиваете полное ведро воды. На ум приходят мысли о спортзале.","колодец",item5.getName());
-        InteractiveObject interactiveObject0 = new InteractiveObject("бездонная пустота","ее не заполнить","пустота","пустота");
 
         ArrayList<InteractiveObject> atticInteractiveObject= new ArrayList<InteractiveObject>();
         atticInteractiveObject.add(interactiveObject1);
@@ -61,9 +60,9 @@ public class Main {
         List<String>  listDoorOnGarden= new ArrayList<String>();
         listDoorOnGarden.add("восток");
 
-        Location atticLocation=new Location("Чердак",   atticListItem,  atticInteractiveObject, listDoorOnAttic,        interactiveObject0);
-        Location roomLocation=new Location("Комната",  roomListItem,   roomInteractiveObject,  listDoorOnRoom,   interactiveObject0);
-        Location gardenlocation=new Location("Сад",      gardenListItem, gardenInteractiveObject,listDoorOnGarden,   interactiveObject0);
+        Location atticLocation=new Location("Чердак",   atticListItem,  atticInteractiveObject, listDoorOnAttic);
+        Location roomLocation=new Location("Комната",  roomListItem,   roomInteractiveObject,  listDoorOnRoom);
+        Location gardenlocation=new Location("Сад",      gardenListItem, gardenInteractiveObject,listDoorOnGarden);
         Door door1=new Door( atticLocation ,"вверх");
         Door door2=new Door(roomLocation,"вниз");
         Door door3=new Door(gardenlocation,"запад");

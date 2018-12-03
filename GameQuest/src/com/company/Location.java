@@ -7,7 +7,6 @@ import java.util.List;
 public class Location {
     private String name;
     private List listItems;
-    private String stateLocation;
     private ArrayList interactiveObjects;
     private List doors;
     private   String temp;
@@ -16,7 +15,7 @@ public class Location {
     private   String nameItem;
 
     Location(String name ,List listItems, ArrayList interactiveObjects,
-             List doors, InteractiveObject interactiveObject0){
+             List doors){
         this.name=name;
         this.listItems=listItems;
         this.interactiveObjects=interactiveObjects;
